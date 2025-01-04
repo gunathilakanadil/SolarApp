@@ -1,0 +1,58 @@
+<h3>Update Customer</h3>
+<form (ngSubmit)="onSubmit()" #customerForm="ngForm">
+    <div class="form-group">
+        <!-- First Name Field -->
+        <label for="firstname">First Name</label>
+        <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            [(ngModel)]="customer.name"
+            name="name"
+            required
+            #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="text-danger">
+            First Name is required.
+        </div>
+
+        <!-- NIC Field -->
+        <label for="nic">NIC</label>
+        <input
+            type="text"
+            class="form-control"
+            id="nic"
+            [(ngModel)]="customer.nic"
+            name="nic"
+            required
+            #nic="ngModel"
+        />
+        <div *ngIf="nic.invalid && nic.touched" class="text-danger">
+            NIC is required.
+        </div>
+
+        <!-- Email Field -->
+        <label for="mail">Email</label>
+        <input
+            type="email"
+            class="form-control"
+            id="mail"
+            [(ngModel)]="customer.email"
+            name="email"
+            required
+            #email="ngModel"
+        />
+        <div *ngIf="email.invalid && email.touched" class="text-danger">
+            Please enter a valid email address.
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="customerForm.invalid"
+    >
+        Update Customer
+    </button>
+</form>

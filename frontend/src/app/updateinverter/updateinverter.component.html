@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="form-header">Update Inverter</h2>
+    <form class="form-container" #inverterForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Serial Number -->
+        <div class="input-container">
+            <input
+                type="text"
+                id="SerialNumber"
+                name="SerialNumber"
+                placeholder="Serial Number"
+                class="form-control"
+                [(ngModel)]="projectInverter.serialNumber"
+                required
+            />
+        </div>
+
+         
+
+        <!-- Inverter ID -->
+       
+
+        <!-- Submit Button -->
+        <button
+            type="submit"
+            class="form-button"
+            [disabled]="!inverterForm.valid">
+            Update Inverter
+        </button>
+    </form>
+</div>

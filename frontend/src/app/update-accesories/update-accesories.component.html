@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Update Accessory</h2>
+    <form (ngSubmit)="onSubmit()" #accessoryForm="ngForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+                type="text"
+                id="name"
+                class="form-control"
+                [(ngModel)]="accessory.name"
+                name="name"
+                required
+                #name="ngModel"
+            />
+            <div *ngIf="name.invalid && name.touched" class="text-danger">
+                Name is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input
+                type="text"
+                id="quantity"
+                class="form-control"
+                [(ngModel)]="accessory.quantity"
+                name="quantity"
+                required
+                #quantity="ngModel"
+            />
+            <div *ngIf="quantity.invalid && quantity.touched" class="text-danger">
+                Quantity is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input
+                type="number"
+                id="rating"
+                class="form-control"
+                [(ngModel)]="accessory.rating"
+                name="rating"
+                required
+                min="1"
+                #rating="ngModel"
+            />
+            <div *ngIf="rating.invalid && rating.touched" class="text-danger">
+                Rating must be at least 1.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="serialNumber">Serial Number:</label>
+            <input
+                type="text"
+                id="serialNumber"
+                class="form-control"
+                [(ngModel)]="accessory.serialNumber"
+                name="serialNumber"
+                required
+                #serialNumber="ngModel"
+            />
+            <div *ngIf="serialNumber.invalid && serialNumber.touched" class="text-danger">
+                Serial Number is required.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="accessoryForm.invalid">Update</button>
+    </form>
+</div>

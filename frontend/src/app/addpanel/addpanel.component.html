@@ -1,0 +1,98 @@
+<div class="container mt-5">
+  <h2>Panel Details</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Model</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let panels of panelss">
+        <td>{{ panels.id }}</td>
+        <td>{{ panels.brand }}</td>
+        <td>{{ panels.model }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <h2>Create Panel</h2>
+    
+    
+    <form #accessoriesForm="ngForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Input for Number of Accessories -->
+      <div class="form-group">
+        <label for="numAccessories">Number of Panels:</label>
+        <input
+          type="number"
+          id="numAccessories"
+          name="numAccessories"
+          [(ngModel)]="numberofpanels"
+          class="form-control"
+          min="1"
+          required
+        />
+
+        <label for="inverterType">Panel Type:</label>
+        <select
+          id="inverterType"
+          name="inverterType"
+          [(ngModel)]="type"
+          class="form-control"
+          required
+        >
+          <option value="" disabled selected>Select Inverter Type</option>
+          <option value="1">Type 1</option>
+          <option value="2">Type 2</option>
+          <option value="3">Type 3</option>
+        </select>
+  
+        <label for="directions">Direction:</label>
+        <input
+          type="text"
+          id="directions"
+          name="directions"
+          [(ngModel)]="direction"
+          class="form-control"
+        />
+  
+        <button type="button" class="btn btn-secondary mt-2" (click)="generateFields()">
+          Generate Fields
+        </button>
+      </div>
+      
+      <!-- Dynamic Fields for Accessories -->
+      <div *ngFor="let panel of panels; let i = index" class="card p-3 mb-2">
+        <h5>Accessory {{ i + 1 }}</h5>
+  
+        <!-- Panel ID Field -->
+         
+        <!-- Serial Number Field -->
+        <div class="form-group">
+          <label for="serialNumber-{{ i }}">Serial Number</label>
+          <input
+            type="text"
+            id="serialNumber-{{ i }}"
+            [(ngModel)]="panel.serialnumber"
+            name="serialNumber-{{ i }}"
+            class="form-control"
+            required
+          />
+          <div *ngIf="!panel.serialnumber" class="text-danger">
+            Serial Number is required.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="!accessoriesForm.valid">
+        Create
+      </button>
+    </form>
+  </div>
+  

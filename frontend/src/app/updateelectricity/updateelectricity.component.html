@@ -1,0 +1,67 @@
+  
+<div class="container">
+    <h2 class="form-header">Update Electricity</h2>
+    <form class="form-container" #electricityForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Connect Date -->
+        <div class="input-container">
+            <input
+                type="date"
+                id="ConnectDate"
+                name="ConnectDate"
+                placeholder="Connection Date"
+                class="form-control"
+                [(ngModel)]="electricity.connectDate"
+                required
+            />
+        </div>
+
+        <!-- Electricity Account Number -->
+        <div class="input-container">
+            <input
+                type="text"
+                id="ElectricityAccountNumber"
+                name="ElectricityAccountNumber"
+                placeholder="Electricity Account Number"
+                class="form-control"
+                [(ngModel)]="electricity.electricityAccountNumber"
+                required
+            />
+        </div>
+
+        <!-- Schema -->
+        <div class="input-container">
+            <input
+                type="text"
+                id="Schema"
+                name="Schema"
+                placeholder="Schema"
+                class="form-control"
+                [(ngModel)]="electricity.schema"
+                required
+            />
+        </div>
+
+        <!-- Area Office -->
+        <div class="input-container">
+            <input
+                type="text"
+                id="AreaOffice"
+                name="AreaOffice"
+                placeholder="Area Office"
+                class="form-control"
+                [(ngModel)]="electricity.areaOffice"
+                required
+            />
+        </div>
+
+      
+
+        <!-- Submit Button -->
+        <button
+            type="submit"
+            class="form-button"
+            [disabled]="!electricityForm.valid">
+            Update Electricity
+        </button>
+    </form>
+</div>

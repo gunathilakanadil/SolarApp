@@ -1,0 +1,224 @@
+<h1>Accessories</h1>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+    <table>
+        <thead>
+            <tr>
+                <th>Accessory</th>
+                <th>Qty</th>
+                <th>Rating</th>
+                <th>Serial Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- DC SPD -->
+            <tr>
+                <td>DC SPD</td>
+                <td>
+                    <input
+                        type="number"
+                        name="dc_spd_qty"
+                        ngModel
+                        min="0"
+                        required
+                        #dcSpdQty="ngModel" />
+                    <div *ngIf="dcSpdQty.invalid && dcSpdQty.touched" class="error-message">
+                        Quantity is required and cannot be negative.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="dc_spd_rating"
+                        ngModel
+                        required
+                        #dcSpdRating="ngModel" />
+                    <div *ngIf="dcSpdRating.invalid && dcSpdRating.touched" class="error-message">
+                        Rating is required.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="dc_spd_serial"
+                        ngModel
+                        required
+                        #dcSpdSerial="ngModel" />
+                    <div *ngIf="dcSpdSerial.invalid && dcSpdSerial.touched" class="error-message">
+                        Serial Number is required.
+                    </div>
+                </td>
+            </tr>
+
+            <!-- DC MCB -->
+            <tr>
+                <td>DC MCB</td>
+                <td>
+                    <input
+                        type="number"
+                        name="dc_mcb_qty"
+                        ngModel
+                        min="0"
+                        required
+                        #dcMcbQty="ngModel" />
+                    <div *ngIf="dcMcbQty.invalid && dcMcbQty.touched" class="error-message">
+                        Quantity is required and cannot be negative.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="dc_mcb_rating"
+                        ngModel
+                        required
+                        #dcMcbRating="ngModel" />
+                    <div *ngIf="dcMcbRating.invalid && dcMcbRating.touched" class="error-message">
+                        Rating is required.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="dc_mcb_serial"
+                        ngModel
+                        required
+                        #dcMcbSerial="ngModel" />
+                    <div *ngIf="dcMcbSerial.invalid && dcMcbSerial.touched" class="error-message">
+                        Serial Number is required.
+                    </div>
+                </td>
+            </tr>
+
+            <!-- AC SPD -->
+            <tr>
+                <td>AC SPD</td>
+                <td>
+                    <input
+                        type="number"
+                        name="ac_spd_qty"
+                        ngModel
+                        min="0"
+                        required
+                        #acSpdQty="ngModel" />
+                    <div *ngIf="acSpdQty.invalid && acSpdQty.touched" class="error-message">
+                        Quantity is required and cannot be negative.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_spd_rating"
+                        ngModel
+                        required
+                        #acSpdRating="ngModel" />
+                    <div *ngIf="acSpdRating.invalid && acSpdRating.touched" class="error-message">
+                        Rating is required.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_spd_serial"
+                        ngModel
+                        required
+                        #acSpdSerial="ngModel" />
+                    <div *ngIf="acSpdSerial.invalid && acSpdSerial.touched" class="error-message">
+                        Serial Number is required.
+                    </div>
+                </td>
+            </tr>
+
+            <!-- AC Isolator -->
+            <tr>
+                <td>AC Isolator</td>
+                <td>
+                    <input
+                        type="number"
+                        name="ac_isolator_qty"
+                        ngModel
+                        min="0"
+                        required
+                        #acIsolatorQty="ngModel" />
+                    <div *ngIf="acIsolatorQty.invalid && acIsolatorQty.touched" class="error-message">
+                        Quantity is required and cannot be negative.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_isolator_rating"
+                        ngModel
+                        required
+                        #acIsolatorRating="ngModel" />
+                    <div *ngIf="acIsolatorRating.invalid && acIsolatorRating.touched" class="error-message">
+                        Rating is required.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_isolator_serial"
+                        ngModel
+                        required
+                        #acIsolatorSerial="ngModel" />
+                    <div *ngIf="acIsolatorSerial.invalid && acIsolatorSerial.touched" class="error-message">
+                        Serial Number is required.
+                    </div>
+                </td>
+            </tr>
+
+            <!-- AC MCB -->
+            <tr>
+                <td>AC MCB</td>
+                <td>
+                    <input
+                        type="number"
+                        name="ac_mcb_qty"
+                        ngModel
+                        min="0"
+                        required
+                        #acMcbQty="ngModel" />
+                    <div *ngIf="acMcbQty.invalid && acMcbQty.touched" class="error-message">
+                        Quantity is required and cannot be negative.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_mcb_rating"
+                        ngModel
+                        required
+                        #acMcbRating="ngModel" />
+                    <div *ngIf="acMcbRating.invalid && acMcbRating.touched" class="error-message">
+                        Rating is required.
+                    </div>
+                </td>
+                <td>
+                    <input
+                        type="text"
+                        name="ac_mcb_serial"
+                        ngModel
+                        required
+                        #acMcbSerial="ngModel" />
+                    <div *ngIf="acMcbSerial.invalid && acMcbSerial.touched" class="error-message">
+                        Serial Number is required.
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <button
+        type="submit"
+        [disabled]="form.invalid"
+    >
+        Submit
+    </button>
+    
+    <button
+        (click)="skip()"
+        type="button"
+        class="form-button"
+    >
+        Skip
+    </button>
+</form>

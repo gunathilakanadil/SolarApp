@@ -1,0 +1,57 @@
+<div class="container">
+    <h2 class="form-header">Create bankForm</h2>
+    <form class="form-container" #bankForm="ngForm" (ngSubmit)="onSubmit()">
+        <!-- Branch name -->
+        
+        <div class="input-container">
+            <input
+                type="text"
+                id="Bank"
+                name="Bank"
+                placeholder="Bank Name"
+                class="form-control"
+                [(ngModel)]="bank.bank"
+                required
+            />
+        </div>
+        
+        <div class="input-container">
+            <input
+                type="text"
+                id="Branch"
+                name="Branch"
+                placeholder="Branch Name"
+                class="form-control"
+                [(ngModel)]="bank.branch"
+                required
+            />
+        </div>
+        
+        <div class="input-container">
+            <input
+                type="text"
+                id="Acc"
+                name="Acc"
+                placeholder="Account Number"
+                class="form-control"
+                [(ngModel)]="bank.accountNumber"
+                required
+            />
+        </div>
+        
+        <!-- Start Date -->
+       
+        <!-- Submit Button -->
+        <button
+            type="submit"
+            class="form-button"
+            [disabled]="!bankForm.valid">
+             Update Bank
+        </button>
+  
+        
+  
+    
+    </form>
+  </div>
+  
