@@ -1,0 +1,50 @@
+ <!-- Header Section -->
+ <header>
+  <nav class="navbar">
+    <div class="logo">Customer Management System</div>
+    <ul class="nav-links">
+      <li><button (click)="navigate()">Create New Customer</button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main Content Section -->
+<main>
+  <input
+    type="text"
+    placeholder="Search by name"
+    [(ngModel)]="searchName"
+    (keyup)="searchCustomers()"
+    style="padding: 5px; width: 300px; margin-bottom: 10px;"
+  />
+  <div class="container">
+    <h1>Customer List</h1>
+    <ul class="customer-list">
+      <li *ngFor="let customer of customers" class="customer-item">
+        <div class="customer-card">
+          <img src="https://i.ibb.co/mvnQ0Ts/emppfp.jpg"  alt="Customer Picture" class="customer-img" />
+
+          <div class="customer-details">
+            <p><strong>ID:</strong> {{ customer.id }}</p>
+            <p><strong>Name:</strong> {{ customer.name }}</p>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+          </div>
+          <div class="customer-actions">
+            <button (click)="updateCustomer(customer.id)">Update</button>
+            <button (click)="deleteCustomer(customer.id)">Delete</button>
+            <button (click)="customerdetils(customer.id)">View</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+   
+</main>
+
+<!-- Footer Section -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2023 Customer Management System. All rights reserved.</p>
+  </div>
+</footer>

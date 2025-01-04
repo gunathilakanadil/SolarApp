@@ -1,0 +1,94 @@
+<h3 class="form-header">Create Customer</h3>
+<form class="form-container" (ngSubmit)="onSubmit()" #customerForm="ngForm">
+
+  <div class="form-group">
+  
+    <!-- First Name Input -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="form-control"
+        id="firstname"
+        placeholder="First Name"
+        [(ngModel)]="customer.name"
+        name="name"
+        required
+        minlength="3"
+        #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="error-message">
+        First name is required (min. 3 characters).
+      </div>
+    </div>
+
+    <!-- Address Input -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        placeholder="Address"
+        [(ngModel)]="customer.address"
+        name="address"
+        required
+        minlength="5"
+        #address="ngModel" />
+      <div *ngIf="address.invalid && address.touched" class="error-message">
+        Address is required (min. 5 characters).
+      </div>
+    </div>
+
+    <!-- Phone Number Input -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="form-control"
+        id="number"
+        placeholder="Phone Number"
+        [(ngModel)]="customer.number"
+        name="number"
+        required
+        pattern="^\d{10}$"
+        #number="ngModel" />
+      <div *ngIf="number.invalid && number.touched" class="error-message">
+        Enter a valid 10-digit phone number.
+      </div>
+    </div>
+
+    <!-- Email Input -->
+    <div class="input-container">
+      <input
+        type="email"
+        class="form-control"
+        id="mail"
+        placeholder="Email"
+        [(ngModel)]="customer.email"
+        name="email"
+        required
+        email
+        #email="ngModel" />
+      <div *ngIf="email.invalid && email.touched" class="error-message">
+        A valid email is required.
+      </div>
+    </div>
+
+    <!-- NIC Input -->
+    <div class="input-container">
+      <input
+        type="text"
+        class="form-control"
+        id="nic"
+        placeholder="NIC"
+        [(ngModel)]="customer.nic"
+        name="nic"
+        required
+        pattern="^[A-Z0-9]{9,12}$"
+        #nic="ngModel" />
+      <div *ngIf="nic.invalid && nic.touched" class="error-message">
+        Enter a valid NIC (between 9 and 12 characters, alphanumeric).
+      </div>
+    </div>
+
+  </div>
+  
+  <button type="submit" class="form-button" [disabled]="customerForm.invalid">Create Customer</button>
+</form>

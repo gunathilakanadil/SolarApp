@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 class="form-header">Create New Project</h2>
+  <form class="form-container" #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+      <!-- Start Date -->
+      <div class="input-container">
+          <img src="https://via.placeholder.com/40?text=📅" alt="Start Date Icon" class="input-icon" />
+          <input
+              type="date"
+              id="startDate"
+              name="startDate"
+              class="form-control"
+              ngModel
+              required
+          />
+      </div>
+
+      <!-- Submit Button -->
+      <button
+          type="submit"
+          class="form-button"
+          [disabled]="!projectForm.valid">
+          Create Project
+      </button>
+  </form>
+</div>

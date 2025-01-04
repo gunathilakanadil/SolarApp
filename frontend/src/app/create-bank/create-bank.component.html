@@ -1,0 +1,74 @@
+<div class="container">
+  <h2 class="form-header">Create Bank Form</h2>
+  <form class="form-container" #bankForm="ngForm" (ngSubmit)="onSubmit(bankForm)">
+  
+    <!-- Bank Name -->
+    <div class="input-container">
+      <input
+        type="text"
+        id="Bank"
+        name="Bank"
+        placeholder="Bank Name"
+        class="form-control"
+        ngModel
+        required
+        #bank="ngModel"
+      />
+      <div *ngIf="bank.invalid && bank.touched" class="error-message">
+        Bank Name is required.
+      </div>
+    </div>
+
+    <!-- Branch Name -->
+    <div class="input-container">
+      <input
+        type="text"
+        id="Branch"
+        name="Branch"
+        placeholder="Branch Name"
+        class="form-control"
+        ngModel
+        required
+        #branch="ngModel"
+      />
+      <div *ngIf="branch.invalid && branch.touched" class="error-message">
+        Branch Name is required.
+      </div>
+    </div>
+
+    <!-- Account Number -->
+    <div class="input-container">
+      <input
+        type="text"
+        id="Acc"
+        name="Acc"
+        placeholder="Account Number"
+        class="form-control"
+        ngModel
+        required
+        pattern="^[0-9]*$"
+        #accountNumber="ngModel"
+      />
+      <div *ngIf="accountNumber.invalid && accountNumber.touched" class="error-message">
+        Account Number is required and should contain only numbers.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="form-button"
+      [disabled]="!bankForm.valid">
+      Create Project
+    </button>
+
+    <!-- Skip Button -->
+    <button
+      (click)="skip()"
+      type="button"
+      class="form-button skip-button">
+      Skip
+    </button>
+
+  </form>
+</div>

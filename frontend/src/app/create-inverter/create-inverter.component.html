@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <h2>Inverter Details</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inverters of inverter">
+        <td>{{ inverters.id }}</td>
+        <td>{{ inverters.brand }}</td>
+        <td>{{ inverters.model }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <h2 class="form-header">Create Inverters</h2>
+    <form class="form-container" #inverterForm="ngForm" (ngSubmit)="onSubmit()">
+    
+      <!-- Number of Inverters -->
+      <div class="input-container">
+        <img src="https://via.placeholder.com/40?text=🔢" alt="Number Icon" class="input-icon" />
+        <label for="numberofpanels">Number of Inverters:</label>
+        <input
+          type="number"
+          id="numberofpanels"
+          name="numberofpanels"
+          [(ngModel)]="numberofinveters"
+          class="form-control"
+          min="1"
+          required
+        />
+        <button type="button" class="btn btn-secondary mt-2" (click)="generateFields()">
+          Generate Fields
+        </button>
+      </div>
+  
+      <!-- Dynamic Fields for Inverters -->
+      <div *ngFor="let inverter of inverters; let i = index" class="card p-3 mb-2">
+        <h5>Inverter {{ i + 1 }}</h5>
+  
+        <div class="input-container">
+          <img src="https://via.placeholder.com/40?text=🔋" alt="Inverter Icon" class="input-icon" />
+          <label for="serialNumber-{{ i }}">Serial Number:</label>
+          <input
+            type="text"
+            id="serialNumber-{{ i }}"
+            [(ngModel)]="inverter.serialNumber"
+            name="serialNumber-{{ i }}"
+            class="form-control"
+            required
+          />
+        </div>
+  
+        <div class="input-container">
+          <img src="https://via.placeholder.com/40?text=🔢" alt="Qty Icon" class="input-icon" />
+          <label for="qty-{{ i }}">Inverter ID:</label>
+          <input
+            type="number"
+            id="qty-{{ i }}"
+            [(ngModel)]="inverter.inverter.id"
+            name="qty-{{ i }}"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="form-button" [disabled]="!inverterForm.valid">
+        Create Inverters
+      </button>
+
+      <button
+            (click)="skip()"
+          type="submit"
+          class="form-button"
+           >
+         Skip
+      </button>
+    </form>
+  </div>
+  

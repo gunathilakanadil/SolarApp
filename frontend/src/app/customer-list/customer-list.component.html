@@ -1,0 +1,120 @@
+<div class="container my-5">
+  <div class="card shadow border-0">
+    <div class="card-header bg-primary text-white">
+      <h1 class="mb-0">Customer Details</h1>
+    </div>
+    <div class="card-body">
+      <!-- Error Message -->
+      <div *ngIf="error" class="alert alert-danger">
+        <strong>Error:</strong> {{ error }}
+      </div>
+
+      <!-- Customer Information -->
+      <div *ngIf="customer" class="d-flex align-items-center">
+        <img src="https://i.ibb.co/mvnQ0Ts/emppfp.jpg"  alt="Customer Picture" class="customer-img" />
+
+
+        <div>
+          <p><strong>ID:</strong> {{ customer.id }}</p>
+          <p><strong>Name:</strong> {{ customer.name }}</p>
+          <p><strong>Address:</strong> {{ customer.address }}</p>
+          <p><strong>Phone:</strong> {{ customer.number }}</p>
+          <p><strong>Email:</strong> {{ customer.email }}</p>
+          <p><strong>NIC:</strong> {{ customer.nic }}</p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <button
+          (click)="addanotherproject(customer.id)"
+          class="btn btn-primary"
+        >
+          Add Project
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow border-0 mt-4">
+    <div class="card-header bg-success text-white">
+      <h2 class="mb-0">Bank Details</h2>
+    </div>
+    <div class="card-body">
+      <!-- No Bank Details Message -->
+      <div *ngIf="bank.length === 0; else bankList" class="alert alert-info">
+        No bank details available.
+      </div>
+
+      <!-- Bank Details Table -->
+      <ng-template #bankList>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th>Branch</th>
+                <th>Account Number</th>
+                <th>Bank Name</th>
+                 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let bankDetail of bank" (click)="into(bankDetail.id)">
+                <td>{{ bankDetail.branch }}</td>
+                <td>{{ bankDetail.accountNumber }}</td>
+                <td>{{ bankDetail.bank }}</td>
+                 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="card shadow border-0 mt-4">
+    <div class="card-header bg-info text-white">
+      <h2 class="mb-0">Projects List</h2>
+    </div>
+    <div class="card-body">
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Projects Table -->
+      <div *ngIf="projects.length > 0; else noProjects" class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Project ID</th>
+              <th>Start Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr    *ngFor="let project of projects; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ project.id }}</td>
+              <td>{{ project.startDate }}</td>
+              <td>
+                <button
+                  (click)="projectdetails(project.id)"
+                  class="btn btn-secondary btn-sm"
+                >
+                  View Data
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- No Projects Message -->
+      <ng-template #noProjects>
+        <div class="alert alert-warning">
+          No projects available for the selected customer.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

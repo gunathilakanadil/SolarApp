@@ -1,0 +1,91 @@
+<div class="container">
+    <h2 class="form-header">Create Electricity Profile</h2>
+    <form class="form-container" #electricityForm="ngForm" (ngSubmit)="onSubmit(electricityForm)">
+      
+      <!-- Connect Date -->
+      <div class="input-container">
+        <input
+          type="date"
+          id="connectDate"
+          name="connectDate"
+          class="form-control"
+          ngModel
+          required
+          #connectDate="ngModel"
+        />
+        <div *ngIf="connectDate.invalid && connectDate.touched" class="error-message">
+          Connect Date is required.
+        </div>
+      </div>
+  
+      <!-- Electricity Account Number -->
+      <div class="input-container">
+        <input
+          type="text"
+          id="electricityAccountNumber"
+          name="electricityAccountNumber"
+          placeholder="Electricity Account Number"
+          class="form-control"
+          ngModel
+          required
+          pattern="^[0-9]*$"
+          #electricityAccountNumber="ngModel"
+        />
+        <div *ngIf="electricityAccountNumber.invalid && electricityAccountNumber.touched" class="error-message">
+          Electricity Account Number is required and should contain only numbers.
+        </div>
+      </div>
+  
+      <!-- Schema -->
+      <div class="input-container">
+        <input
+          type="text"
+          id="schema"
+          name="schema"
+          placeholder="Schema"
+          class="form-control"
+          ngModel
+          required
+          #schema="ngModel"
+        />
+        <div *ngIf="schema.invalid && schema.touched" class="error-message">
+          Schema is required.
+        </div>
+      </div>
+  
+      <!-- Area Office -->
+      <div class="input-container">
+        <input
+          type="text"
+          id="areaOffice"
+          name="areaOffice"
+          placeholder="Area Office"
+          class="form-control"
+          ngModel
+          required
+          #areaOffice="ngModel"
+        />
+        <div *ngIf="areaOffice.invalid && areaOffice.touched" class="error-message">
+          Area Office is required.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="form-button"
+        [disabled]="!electricityForm.valid">
+        Create Project
+      </button>
+  
+      <!-- Skip Button -->
+      <button
+        (click)="skip()"
+        type="button"
+        class="form-button skip-button">
+        Skip
+      </button>
+  
+    </form>
+  </div>
+  
